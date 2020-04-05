@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import ThreadShow from '@/components/ThreadShow'
 
 Vue.use(VueRouter)
 
@@ -11,6 +12,12 @@ const routes = [
     component: Home
   },
   {
+    path: '/thread/:id',
+    name: 'ThreadShow',
+    component: ThreadShow,
+    props: true
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
@@ -19,8 +26,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
-
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 
